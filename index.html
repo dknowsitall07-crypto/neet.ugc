@@ -105,6 +105,20 @@
       padding: 25px 25px 30px 25px;
     }
 
+    /* Error Alert */
+    .error-msg {
+      display: none;
+      background-color: #f8d7da;
+      color: #842029;
+      border: 1px solid #f5c2c7;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      text-align: center;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+
     .form-group {
       display: flex;
       align-items: center;
@@ -150,10 +164,12 @@
       font-weight: bold;
       font-size: 20px;
       padding: 4px 14px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       font-family: 'Courier New', Courier, monospace;
       border-radius: 2px;
       user-select: none;
+      font-style: italic;
+      text-decoration: line-through;
     }
 
     .refresh-btn {
@@ -242,28 +258,32 @@
         🔒 View Result
       </div>
       <div class="card-body">
-        <form onsubmit="event.preventDefault();">
+        
+        <!-- Error Message Bar -->
+        <div id="errorAlert" class="error-msg"></div>
+
+        <form id="loginForm">
           
           <div class="form-group">
             <label for="appNo">Application Number :</label>
-            <input type="text" id="appNo" class="form-control" autocomplete="off">
+            <input type="text" id="appNo" class="form-control" autocomplete="off" required>
           </div>
 
           <div class="form-group">
             <label for="password">Password :</label>
-            <input type="password" id="password" class="form-control">
+            <input type="password" id="password" class="form-control" required>
           </div>
 
           <div class="form-group">
             <label for="captchaInput">Enter CAPTCHA<br><span class="highlight-green">(case sensitive)</span> :</label>
-            <input type="text" id="captchaInput" class="form-control" autocomplete="off">
+            <input type="text" id="captchaInput" class="form-control" autocomplete="off" required>
           </div>
 
           <div class="form-group">
             <label>CAPTCHA :</label>
             <div class="captcha-container">
-              <div class="captcha-box">S4jHKT</div>
-              <button type="button" class="refresh-btn" title="Refresh Captcha">
+              <div id="captchaBox" class="captcha-box"></div>
+              <button type="button" class="refresh-btn" id="refreshCaptcha" title="Refresh Captcha">
                 <svg class="refresh-icon" viewBox="0 0 24 24">
                   <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
                 </svg>
@@ -285,6 +305,58 @@
   <footer class="footer">
     This site is designed and hosted by NIC PEP Division. The contents are provided by NTA. For any further information, please contact NTA.
   </footer>
+
+  <script>
+    let currentCaptcha = "";
+
+    // Generate Random Captcha
+    function generateCaptcha() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let captcha = "";
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      currentCaptcha = captcha;
+      document.getElementById("captchaBox").innerText = captcha;
+    }
+
+    // Refresh button listener
+    document.getElementById("refreshCaptcha").addEventListener("click", generateCaptcha);
+
+    // Initial captcha load
+    generateCaptcha();
+
+    // Handle Login Submit
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const appNoInput = document.getElementById("appNo").value.trim();
+      const passwordInput = document.getElementById("password").value.trim();
+      const captchaInput = document.getElementById("captchaInput").value.trim();
+      const errorAlert = document.getElementById("errorAlert");
+
+      // Validate Captcha first
+      if (captchaInput !== currentCaptcha) {
+        errorAlert.innerText = "Invalid CAPTCHA. Please try again.";
+        errorAlert.style.display = "block";
+        generateCaptcha();
+        document.getElementById("captchaInput").value = "";
+        return;
+      }
+
+      // Validate Application Number and Password
+      if (appNoInput === "260411454026" && passwordInput === "Vandana@03") {
+        errorAlert.style.display = "none";
+        // Redirect to the scorecard page
+        window.location.href = "scorecard.html";
+      } else {
+        errorAlert.innerText = "Invalid Application Number or Password.";
+        errorAlert.style.display = "block";
+        generateCaptcha();
+        document.getElementById("captchaInput").value = "";
+      }
+    });
+  </script>
 
 </body>
 </html>
