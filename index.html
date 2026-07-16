@@ -34,7 +34,296 @@
       gap: 12px;
     }
 
-    .emblem-icon {
+    .emblem {
+      height: 52px;
+      width: auto;
+    }
+
+    .dept-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      line-height: 1.2;
+    }
+
+    .dept-title span {
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    .header-center {
+      text-align: center;
+    }
+
+    .header-center h1 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .header-center h2 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #111;
+      margin-top: 2px;
+    }
+
+    .header-center h3 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #111;
+      margin-top: 2px;
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .logo-nta {
+      height: 38px;
+      width: auto;
+    }
+
+    .logo-nmc {
+      height: 38px;
+      width: auto;
+    }
+
+    /* Top Dark Bar */
+    .top-bar {
+      background-color: #002B49;
+      height: 32px;
+      width: 100%;
+    }
+
+    /* Main Container */
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      background-color: #fff;
+    }
+
+    /* Login Card */
+    .login-card {
+      width: 520px;
+      border: 1px solid #d3d3d3;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      background-color: #fff;
+    }
+
+    .card-header {
+      background-color: #002B49;
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-body {
+      padding: 25px 25px 30px 25px;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      width: 170px;
+      font-size: 14px;
+      color: #222;
+      text-align: right;
+      padding-right: 15px;
+    }
+
+    .form-group label .highlight-green {
+      color: #1a7332;
+      font-weight: bold;
+    }
+
+    .form-control {
+      flex: 1;
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: #002B49;
+    }
+
+    /* Captcha Section */
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .captcha-box {
+      background-color: #000066;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 4px 14px;
+      letter-spacing: 2px;
+      font-family: 'Courier New', Courier, monospace;
+      border-radius: 2px;
+      user-select: none;
+    }
+
+    .refresh-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+
+    .refresh-icon {
+      width: 26px;
+      height: 26px;
+      fill: #2ecc71;
+    }
+
+    /* Form Actions */
+    .form-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 25px;
+      padding-left: 170px;
+    }
+
+    .btn-submit {
+      background-color: #1b8a5a;
+      color: white;
+      border: none;
+      padding: 8px 24px;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .btn-submit:hover {
+      background-color: #156d47;
+    }
+
+    .forgot-link {
+      color: #000080;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #002B49;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem of India" class="emblem">
+      <div class="dept-title">
+        Department of Higher Education<br>
+        <span>Ministry of Education</span><br>
+        <span>Government of India</span>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <h1>NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) –</h1>
+      <h2>2026</h2>
+      <h3>Score Card</h3>
+    </div>
+
+    <div class="header-right">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/National_Testing_Agency_Logo.svg" alt="National Testing Agency" class="logo-nta">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/National_Medical_Commission_Logo.svg" alt="National Medical Commission" class="logo-nmc" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Emblem_of_India_%28golden%29.svg/100px-Emblem_of_India_%28golden%29.svg.png'">
+    </div>
+  </header>
+
+  <!-- Top Dark Bar -->
+  <div class="top-bar"></div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="login-card">
+      <div class="card-header">
+        🔒 View Result
+      </div>
+      <div class="card-body">
+        <form onsubmit="event.preventDefault();">
+          
+          <div class="form-group">
+            <label for="appNo">Application Number :</label>
+            <input type="text" id="appNo" class="form-control" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password :</label>
+            <input type="password" id="password" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="captchaInput">Enter CAPTCHA<br><span class="highlight-green">(case sensitive)</span> :</label>
+            <input type="text" id="captchaInput" class="form-control" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label>CAPTCHA :</label>
+            <div class="captcha-container">
+              <div class="captcha-box">S4jHKT</div>
+              <button type="button" class="refresh-btn" title="Refresh Captcha">
+                <svg class="refresh-icon" viewBox="0 0 24 24">
+                  <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">LOGIN</button>
+            <a href="#" class="forgot-link">Forgot Password ?</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    This site is designed and hosted by NIC PEP Division. The contents are provided by NTA. For any further information, please contact NTA.
+  </footer>
+
+</body>
+</html>    .emblem-icon {
       width: 40px;
       height: 48px;
     }
