@@ -1,25 +1,41 @@
-<!-- Header with Image Logos -->
-  <header class="header">
-    <div class="header-left">
-      <img src="emblem.png" alt="Emblem" class="emblem">
-      <div class="dept-title">
-        Department of Higher Education<br>
-        <span>Ministry of Education</span><br>
-        <span>Government of India</span>
-      </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) - 2026 Score Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-    <div class="header-center">
-      <h1>NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) –</h1>
-      <h2>2026</h2>
-      <h3>Score Card</h3>
-    </div>
+    body {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-    <div class="header-right">
-      <img src="nta_logo.png" alt="NTA Logo" class="logo-nta">
-      <img src="nmc_logo.png" alt="NMC Logo" class="logo-nmc">
-    </div>
-  </header>    .emblem {
+    /* Header Section */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      background-color: #fff;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .emblem-icon {
+      width: 40px;
       height: 48px;
     }
 
@@ -65,15 +81,19 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 5px;
+      gap: 4px;
     }
 
-    .logo-nta {
-      height: 38px;
+    .agency-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: #002B49;
     }
 
-    .logo-nmc {
-      height: 38px;
+    .commission-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: #002B49;
     }
 
     /* Top Dark Bar */
@@ -111,10 +131,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-
-    .card-header .lock-icon {
-      font-size: 16px;
     }
 
     .card-body {
@@ -234,10 +250,11 @@
   <!-- Header -->
   <header class="header">
     <div class="header-left">
-      <!-- State Emblem Placeholder -->
-      <svg class="emblem" viewBox="0 0 100 120">
-        <path d="M50 10 L80 40 L80 80 L50 110 L20 80 L20 40 Z" fill="#444" />
-        <circle cx="50" cy="50" r="15" fill="#888" />
+      <!-- State Emblem -->
+      <svg class="emblem-icon" viewBox="0 0 100 120">
+        <path d="M50 5 L85 30 L85 85 L50 115 L15 85 L15 30 Z" fill="#666" />
+        <circle cx="50" cy="55" r="20" fill="#999" />
+        <rect x="42" y="80" width="16" height="20" fill="#444" />
       </svg>
       <div class="dept-title">
         Department of Higher Education<br>
@@ -253,19 +270,19 @@
     </div>
 
     <div class="header-right">
-      <div style="font-weight: bold; color: #002B49; font-size: 14px;">National Testing Agency</div>
-      <div style="font-weight: bold; color: #002B49; font-size: 12px; margin-top: 10px;">National Medical Commission</div>
+      <div class="agency-title">National Testing Agency</div>
+      <div class="commission-title">National Medical Commission</div>
     </div>
   </header>
 
-  <!-- Dark Top Bar -->
+  <!-- Top Dark Bar -->
   <div class="top-bar"></div>
 
   <!-- Main Content -->
   <main class="main-content">
     <div class="login-card">
       <div class="card-header">
-        <span class="lock-icon">🔒</span> View Result
+        🔒 View Result
       </div>
       <div class="card-body">
         <form onsubmit="event.preventDefault();">
